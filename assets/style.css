@@ -1,0 +1,146 @@
+:root {
+    --primary-color: rgba(13, 110, 139, 0.75);
+    --overlay-color: rgba(24, 39, 51, 0.85);
+    --menu-speed: 0.75s;
+}
+
+*:focus {
+    outline: none;
+}
+
+@font-face {
+    font-family: FirstFont;
+    src: url(font/Poppins-Regular.otf);
+}
+
+@font-face {
+    font-family: secFont;
+    src: url(font/Poppins-Bold.otf);
+}
+
+@media screen and (min-width: 520px) {
+    #mobi {
+        display: none;
+    }
+}
+
+#top {
+    display: block;
+    height: 100vh;
+    background-color: black;
+    position: relative;
+}
+
+video {
+    height: 80vh;
+    width: 70vw;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    margin-left: 15vw;
+    margin-right: 15vw;
+    align-items: center;
+}
+
+.menu-wrap {
+    display: none;
+}
+
+.mid {
+    text-align: center;
+}
+
+.webp {
+    justify-content: right;
+    font-size: 1.5vw;
+}
+
+.topic {
+    margin-right: auto;
+    margin-left: auto;
+    font-family: secFont;
+    font-size: 4.311008468052348vw;
+    color: #141681;
+    animation: type 1s steps(10);
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+}
+
+@keyframes type {
+    0% {
+        width: 0ch;
+    }
+    100% {
+        width: 10ch;
+    }
+}
+
+.downSiz {
+    font-family: FirstFont;
+    font-size: 1.8475750577367205vw;
+    color: #000000;
+    text-align: center;
+    border-right: 0.15396458814472672vw solid #000000;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.anim-typewriter {
+    animation: typewriter 4s steps(17) 1s 1 normal both, blinkTextCursor 500ms steps(17) infinite normal;
+}
+
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+    to {
+        width: 9em;
+    }
+}
+
+@keyframes blinkTextCursor {
+    from {
+        border-right-color: #000000;
+    }
+    to {
+        border-right-color: transparent;
+    }
+}
+
+.thumbnail {
+    align-items: center;
+    font-family: FirstFont;
+    text-align: center;
+}
+
+
+/* .dimage {col-md-3 heacol-md-3 headerder
+    margin-top: auto;
+    margin-bottom: auto;
+    border: blue !important;
+    border-radius: 20px !important;
+    border-width: thick !important;
+} */
+
+.header a {
+    margin-top: auto;
+    margin-left: auto;
+    margin-bottom: auto;
+    margin-right: auto;
+    font-family: FirstFont;
+    color: black;
+    text-decoration: none;
+}
+
+.thebox img {
+    border: 4px solid blue;
+    border-radius: 20px;
+}
+
+
+/* login/sign up starts */
+
+

@@ -1,0 +1,272 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen and (min-width: 575px)" href="{% static 'style.css' %}">
+    <link rel="stylesheet" media="screen and (max-width: 575px)" href="{% static 'style3.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <title>TechLopers</title>
+</head>
+
+<body id="menu" class="body-page" style="background-image: url(../static/media/bricks.jpg) !important;">
+
+    <!--top video-->
+    <div id="top">
+        <video class="video" autoplay muted>
+            <source src="{% static 'media/1298.mp4' %}" type="video/mp4"  >
+        </video>
+
+        <img id="mobi" src="{% static 'media/tech.gif' %}">
+    </div>
+
+
+    <!-- top video ends -->
+
+    <!-- top video fading script -->
+    <script>
+        function fadeOutEffect() {
+            var fadeTarget = document.getElementById("top");
+            var fadeEffect = setInterval(function() {
+                if (!fadeTarget.style.opacity) {
+                    fadeTarget.style.opacity = 1;
+                }
+                if (fadeTarget.style.opacity > 0) {
+                    fadeTarget.style.opacity -= 0.1;
+                } else {
+                    clearInterval(fadeEffect);
+                }
+            }, 6000);
+        }
+        setInterval(fadeOutEffect, 100);
+    </script>
+    <!-- top video fading script ends -->
+
+    <div id="test" style="display: none;">
+        <div class="container">
+
+            <div class="row" style="margin-top: 3%;">
+                <div class="col-md-3 col-sm-3"></div>
+                <div class="col-md-6 col-sm-6  mid">
+                    <p class="topic">TechLopers</p>
+                    <p class="downSiz anim-typewriter">Technically Niche</p>
+                </div>
+                <div class="col-md-3 col-sm-3 header align-self-center">
+                    <div class="webp ">
+                        {% if request.user.is_authenticated %}
+                        <a id="logop"  href="#" style="text-decoration: none; margin-top: 50%; margin-bottom: auto; margin-left:15% ;">Hello, {{request.user.username}} &nbsp;&nbsp;</a>
+                        <a id="signop"  href="{% url 'for_logout' %}" style="text-decoration: none; margin-top: auto; margin-bottom: auto;">logout</a>
+                        {% else %}
+                        <a id="logop"  href="{% url 'for_login'%}" style="text-decoration: none; margin-top: 50%; margin-bottom: auto; margin-left:15% ;">Log In &nbsp;&nbsp;</a>
+                        <a id="signop"  href="{% url 'register'%}" style="text-decoration: none; margin-top: auto; margin-bottom: auto;">Sign Up</a>
+                        {% endif %}
+                    </div>
+
+                    <!-- hamburger -->
+                    <div class="menu-wrap">
+                        <input type="checkbox" class="toggler">
+                        <div class="hamburger">
+                            <div></div>
+                        </div>
+                        <div class="menu ">
+                            <div>
+                                <div>
+                                    <ul>
+                                        {% if request.user.is_authenticated %}
+                                        <li><a id="logop"  href="#" style="text-decoration: none; margin-top: 50%; margin-bottom: auto; margin-left:15% ;">Hello, {{request.user.username}} &nbsp;&nbsp;</a></li>
+                                        <li><a id="signop"  href="{% url 'for_logout' %}" style="text-decoration: none; margin-top: auto; margin-bottom: auto;">logout</a></li>
+                                        {% else %}
+                                        <li><a id="logop"  href="{% url 'for_login'%}" style="text-decoration: none; margin-top: 50%; margin-bottom: auto; margin-left:15% ;">Log In &nbsp;&nbsp;</a></li>
+                                        <li><a id="signop"  href="{% url 'register'%}" style="text-decoration: none; margin-top: auto; margin-bottom: auto;">Sign Up</a></li>
+                                        {% endif %}
+                                        <li><a href="#" style="-webkit-tap-highlight-color: transparent;">Reach Us</a></li>
+                                        <li>
+                                            <a href="https://www.facebook.com/TechLopers/"><img src="{% static 'media/facebook.png' %}" alt="" style="display:block; margin-right:auto; margin-left:auto; height:15vw; width:15vw"></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><img src="{% static 'media/twitter.png' %}" alt="" style="display:block; margin-top:auto; margin-right:auto; margin-left:auto; height:15vw; width:15vw"></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><img src="{% static 'media/linkedin.png' %}" alt="" style="display:block; margin-right:auto; margin-left:auto; height:15vw; width:15vw"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- hamburger ends -->
+                </div>
+
+            </div>
+
+            <div class="row justify-content-center" style="margin-top: 3%;">
+                <!-- <div class="col-md-2"></div> -->
+                <div class="col-md-3 col-sm-6 thebox">
+                    <div class="thumbnail ">
+                        <a href="{% url 'for_explore' %}">
+                            <img class="dimage" src="{% static 'media/Explore_us.gif' %}" alt="" style="width:50%; ">
+                            <div class="caption">
+                                <p style="text-decoration: none; color: black;"> <br> Explore us</p>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="col-md-3 col-sm-6 thebox">
+                    <div class="thumbnail">
+                        <a href="{%url 'for_products'%}" >
+                            <img class="dimage" src="{% static 'media/projects.gif' %}" alt="" style="width:50%; ">
+                            <div class="caption">
+                                <p style="text-decoration: none; color: black;"> <br> Our Products</p>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="col-md-3 col-sm-6 thebox">
+                    <div class="thumbnail">
+                        <a href="#" target="_blank">
+                            <img class="dimage" src="{% static 'media/support.gif' %}" alt="" style="width:50%; ">
+                            <div class="caption">
+                                <p style="text-decoration: none; color: black;"> <br> Support</p>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="col-md-3 col-sm-6 thebox">
+                    <div class="thumbnail">
+                        <a href="#" target="_blank">
+                            <img class="dimage " src="{% static 'media/clients.gif' %}" alt="" style="width:50%; ">
+                            <div class="caption">
+                                <p style="text-decoration: none; color: black;"> <br> Our Clients</p>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+                <!-- <div class="col-md-2"></div> -->
+            </div>
+
+            <div class="row social" style="margin-top: 2%;">
+                <div class="col-md-4 col-sm-4 row w-50 mx-auto">
+                    <div class="col-md-1 col-sm-1  rounded-circle w-70 mx-auto">
+                        <a href="https://www.facebook.com/TechLopers/"><img src="{% static 'media/facebook.png' %}" alt="" style="display:block; justify-content: center;  height:2.6943802925327174vw; width:2.6943802925327174vw"></a>
+                    </div>
+                    <div class="col-md-1 col-sm-1 rounded-circle w-50 mx-auto">
+                        <a href="#"><img src="{% static 'media/twitter.png' %}" alt="" style="display:block;  height:2.6943802925327174vw; width:2.6943802925327174vw"></a>
+                    </div>
+                    <div class="col-md-1 col-sm-1 rounded-circle w-30 mx-auto">
+                        <a href="#"><img src="{% static 'media/linkedin.png' %}" alt="" style="display:block; height:2.6943802925327174vw; width:2.6943802925327174vw"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 5%;">
+                <div class="col-md-3"></div>
+                <div class="col-md-6 text-center ">
+                    <button type="button" class="btn btn-primary btn-lg align-self-center" style="margin-left: 10%; margin-right: auto; text-align: center;">Reach Us</button>
+                </div>
+                <div class="col-md-3">
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-wrapper-login" class="modal">
+
+            <form class="modal-content animate" action="/action_page.php">
+
+                <!-- <div class="imgcontainer">
+                    <span onclick="document.getElementById('modal-wrapper-login').style.display='none'" class="close" title="Close PopUp">&times;</span>
+                    <h1 style="text-align:center; font-family: FirstFont; color:rgb(20, 22, 122);">Welcome <br> back!</h1>
+                </div>
+
+                <div class="fcontainer">
+                    <div class="thimage">
+                        <img class="timage" src="media/login.jpg" alt="">
+                    </div>
+                    <div class="fthings">
+                        <input type="text" placeholder="Enter Username" name="uname">
+                        <input type="password" placeholder="Enter Password" name="psw">
+                        <button type="submit">Login</button>
+                        <a href="#" style="text-decoration:none; float:right; margin-right:34px; margin-top:26px;">Forgot Password?</a>
+                    </div>
+                </div> -->
+                
+                <p>you are right!</p>
+            </form>
+
+        </div>
+
+        <!-- <div id="modal-wrapper-signup" class="modal">
+
+            <form class="modal-content-signup animate" action="/action_page.php">
+
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('modal-wrapper-signup').style.display='none'" class="close" title="Close PopUp">&times;</span>
+                    <h1 style="text-align:center; font-family: FirstFont; color:rgb(20, 22, 122);">Join us!</h1>
+                </div>
+
+                <div class="fcontainer">
+                    <div class="thimage">
+                        <img class="timage" src="media/signup.jpg" alt="">
+                    </div>
+                    <div class="fthings">
+                        <input type="text" placeholder="First Username" name="uname">
+                        <input type="text" placeholder="Last Username" name="uname">
+                        <input type="email" placeholder="user@domain.com" name="email">
+                        <input type="password" placeholder="Password" name="psw">
+                        <input type="password" placeholder="Re-enter Password" name="psw">
+                        <button type="submit">Sign Up</button>
+                    </div>
+                </div>
+            </form>
+        </div> -->
+
+        <script>
+        // <!-- If user clicks anywhere outside of the modal, Modal will close  -->
+
+        var modal = document.getElementById('modal-wrapper-login');
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+
+            var modl = document.getElementById('modal-wrapper-signup');
+            window.onclick = function(event) {
+                if (event.target == modl) {
+                    modl.style.display = "none";
+                }
+            }
+        </script>
+
+    </div>
+
+        <!-- another onepage ends -->
+
+        <script>
+            function toggle() {
+                var top = document.getElementById("top");
+                var bottom = document.getElementById("test");
+
+                if (top.style.display == "none") {
+                    top.style.display = "block";
+                    bottom.style.display = "none";
+                } else {
+                    top.style.display = "none";
+                    bottom.style.display = "grid";
+                }
+            }
+
+            setTimeout(toggle, 9000);
+        </script>
+
+</body>
+
+</html>
